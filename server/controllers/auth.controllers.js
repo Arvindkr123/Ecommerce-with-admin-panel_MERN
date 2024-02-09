@@ -36,7 +36,7 @@ export const registerController = async (req, res, next) => {
 
     const token = await generateWebToken(newUser);
 
-    return res.status(200).json({ newUser, token });
+    res.status(200).send(token);
   } catch (error) {
     console.log(error.message);
   }
@@ -71,10 +71,7 @@ export const loginContoller = async (req, res, next) => {
     }
 
     const token = await generateWebToken(user);
-    return res.status(200).json({
-      message: "login successfully",
-      token,
-    });
+    res.status(200).send(token);
   } catch (error) {
     console.log(error);
   }

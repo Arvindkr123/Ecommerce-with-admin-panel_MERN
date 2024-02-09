@@ -12,6 +12,7 @@ import {
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -107,7 +108,17 @@ const Cart = () => {
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and Shipping calculted at checkout</p>
-              <button>Check Out</button>
+              {auth?._id ? (
+                <button>Check Out</button>
+              ) : (
+                <button
+                  className="cart-login"
+                  onClick={() => navigate("/login")}
+                >
+                  Login to Check Out
+                </button>
+              )}
+
               <div className="continue-shopping">
                 <Link to="/">
                   <svg

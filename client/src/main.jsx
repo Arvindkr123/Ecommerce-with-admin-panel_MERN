@@ -8,8 +8,10 @@ import store from "./store/index.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getTotals } from "./store/features/cartSlice.js";
+import { loadUser } from "./store/features/authSlice.js";
 
 store.dispatch(getTotals());
+store.dispatch(loadUser(null));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
