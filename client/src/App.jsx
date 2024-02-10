@@ -6,6 +6,7 @@ import Cart from "./components/Cart";
 import NotFound from "./components/NotFound";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout-success" element={<CheckoutSuccess />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
